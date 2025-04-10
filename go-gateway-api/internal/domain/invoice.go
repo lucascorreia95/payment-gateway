@@ -40,7 +40,12 @@ func NewInvoice(accountID string, amount float64, description string, paymentTyp
 		return nil, ErrInvalidAmount
 	}
 
-	lastDigits := card.Number[len(card.Number)-4:]
+	var lastDigits string
+	if len(card.Number) >= 4 {
+		lastDigits = card.Number[len(card.Number)-4:]
+	} else {
+		lastDigits = card.Number // Ou alguma outra lógica que faça sentido para você
+	}
 
 	return &Invoice{
 		ID:             uuid.New().String(),
