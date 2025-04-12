@@ -1,16 +1,25 @@
 services:
-  nestjs:
-    build: .
-    ports:
-      - 3001:3000
-    volumes:
-      - .:/home/node/app
 
-  db:
+  # nestjs:
+  #   build: .
+  #   ports:
+  #     - 3001:3000
+  #   volumes:
+  #     - .:/home/node/app
+  #   networks:
+  #     - go-gateway-api_default
+    
+  nestjs-db:
     image: postgres:16-alpine
-    ports:
-      - "5433:5432"
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_DB=antifraud
+    ports:
+      - 5433:5432
+    networks:
+      - go-gateway-api_default
+        
+networks:
+  go-gateway-api_default:
+    external: true

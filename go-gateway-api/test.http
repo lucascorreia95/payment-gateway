@@ -8,8 +8,8 @@ POST {{baseUrl}}/accounts
 Content-Type: application/json
 
 {
-    "name": "John 6",
-    "email": "john6@doew.com"
+    "name": "John 7",
+    "email": "john7@doew.com"
 }
 
 ### Obter dados da conta
@@ -57,4 +57,9 @@ X-API-Key: {{apiKey}}
     "expiry_month": 12,
     "expiry_year": 2025,
     "cardholder_name": "John Doe"
-} 
+}
+
+###json para disparar uma mensagem no kafka
+###{"account_id": "dd0ae4bf-8348-444d-ac41-b7c11b89f3e9", "invoice_id": "de52d971-ff3e-41c9-89e2-2a4285c51b38", "amount": 100.5}
+###comando para abrir o console em modo de produtor no kafka
+###kafka-console-producer --bootstrap-server localhost:9092 --topic pending_transactions
