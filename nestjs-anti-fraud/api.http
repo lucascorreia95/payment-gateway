@@ -1,0 +1,5 @@
+GET http://localhost:4000/invoices?account_id=2
+
+###
+
+GET http://localhost:4000/invoices/1

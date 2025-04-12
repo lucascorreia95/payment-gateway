@@ -3,12 +3,14 @@ import { PrismaService } from 'src/prisma/prisma.service';
 import { ProcessInvoiceFraudDto } from '../dto/process-invoice-fraud.dto';
 import { Account, FraudReason, InvoiceStatus } from '@prisma/client';
 import { ConfigService } from '@nestjs/config';
+import { FraudAggregateSpecification } from './specification/fraud-aggregate.specification';
 
 @Injectable()
 export class FraudService {
   constructor(
     private prismaService: PrismaService,
     private configService: ConfigService,
+    private fraudAggregateSpecification: FraudAggregateSpecification,
   ){}
 
   async processInvoice(processInvoiceFraudDto: ProcessInvoiceFraudDto){
@@ -34,7 +36,7 @@ export class FraudService {
       }
     })
 
-    const fraudResult = await this.detectFraud({ account, amount })
+    const fraudResult = await this.fraudAggregateSpecification.detectFraud({ account, amount, invoiceId: invoice_id })
 
     const invoice = await this.prismaService.invoice.create({
       data:{
