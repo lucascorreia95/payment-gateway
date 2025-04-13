@@ -14,6 +14,11 @@ Este projeto é um Payment Gateway desenvolvido como um estudo para aprimorar me
 
 O gateway permite a criação e o gerenciamento de cobranças, com um fluxo de validação adicional para cobranças de alto valor, utilizando um microsserviço dedicado. A arquitetura do projeto visa simular um ambiente de produção com diferentes serviços comunicando-se de forma eficiente.
 
+<p align="center">
+  <img src="assets/dashboard.png" alt="Dashboard do Projeto Payment Gateway" width="600" />
+  <img src="assets/detail.png" alt="Pagina de detalhes do Projeto Payment Gateway" width="600" />
+</p>
+
 ## ✨ Funcionalidades Principais
 
 **Front-end (Next.js):**
