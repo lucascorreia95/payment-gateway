@@ -10,7 +10,7 @@
 
 ## 🚀 Sobre o Projeto
 
-Este projeto é um Payment Gateway desenvolvido como um estudo para aprimorar meus conhecimentos como desenvolvedor Full Stack. Ele demonstra a integração de um front-end moderno com um back-end robusto, além de explorar conceitos de comunicação assíncrona com o Kafka e a containerização com Docker.
+Este projeto é um Payment Gateway desenvolvido como um estudo para aprimorar meus conhecimentos como desenvolvedor Full Stack. Ele demonstra a integração de um front-end com um back-end e um microsserviço, além de explorar conceitos de comunicação assíncrona com o Kafka e a containerização com Docker.
 
 O gateway permite a criação e o gerenciamento de cobranças, com um fluxo de validação adicional para cobranças de alto valor, utilizando um microsserviço dedicado. A arquitetura do projeto visa simular um ambiente de produção com diferentes serviços comunicando-se de forma eficiente.
 
