@@ -8,8 +8,8 @@ POST {{baseUrl}}/accounts
 Content-Type: application/json
 
 {
-    "name": "John 7",
-    "email": "john7@doew.com"
+    "name": "John 9",
+    "email": "john9@doew.com"
 }
 
 ### Obter dados da conta
@@ -24,7 +24,7 @@ Content-Type: application/json
 X-API-Key: {{apiKey}}
 
 {
-    "amount": 100.50,
+    "amount": 125.50,
     "description": "Teste de fatura",
     "payment_type": "credit_card",
     "card_number": "4111111111111111",
@@ -60,6 +60,7 @@ X-API-Key: {{apiKey}}
 }
 
 ###json para disparar uma mensagem no kafka
-###{"account_id": "dd0ae4bf-8348-444d-ac41-b7c11b89f3e9", "invoice_id": "de52d971-ff3e-41c9-89e2-2a4285c51b38", "amount": 100.5}
+###{"account_id": "370f6ef4-4d69-438b-bfd5-126644b579cb", "invoice_id": "9118fde1-ad51-437a-9c63-d28f11122135", "amount": 115.5}
 ###comando para abrir o console em modo de produtor no kafka
 ###kafka-console-producer --bootstrap-server localhost:9092 --topic pending_transactions
+###kafka-console-consumer --bootstrap-server localhost:9092 --topic transaction_results

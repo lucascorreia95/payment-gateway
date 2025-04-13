@@ -7,6 +7,8 @@ import { FraudAggregateSpecification } from './fraud/specification/fraud-aggrega
 import { InvoicesService } from './invoices.service';
 import { InvoicesController } from './invoices.controller';
 import { InvoicesConsumer } from './invoices.consumer';
+import * as kafkaLib from '@confluentinc/kafka-javascript';
+import { PublishProcessedInvoiceListener } from './events/publish-processed-invoice.listener';
 
 @Module({
   providers: [
@@ -34,7 +36,14 @@ import { InvoicesConsumer } from './invoices.consumer';
         UnusualAmountSpecification,
       ]
     },
-    InvoicesService
+    InvoicesService,
+    {
+      provide: kafkaLib.KafkaJS.Kafka,
+      useValue: new kafkaLib.KafkaJS.Kafka({
+        'bootstrap.servers': 'localhost:9092'
+      })
+    },
+    PublishProcessedInvoiceListener
   ],
   controllers: [InvoicesController, InvoicesConsumer]
 })
